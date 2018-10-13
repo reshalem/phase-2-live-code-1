@@ -49,6 +49,16 @@ class UserController {
                 res.status(500).json(err.message);
             });
     }
+
+    static getUsersData(req, res) {
+        User.find()
+            .then(function(users) {
+                res.status(200).json(users);
+            })
+            .catch(function(err) {
+                res.status(500).json(err.message);
+            });
+    }
 }
 
 module.exports = UserController;
